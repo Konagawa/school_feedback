@@ -1,0 +1,27 @@
+default: &default
+  # adapter: sqlite3 変更
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode # 追加
+
+development:
+  <<: *default
+  # database: db/development.sqlite3 変更
+  database: _development
+  host: localhost
+  username: postgres
+  password: 6956
+test:
+  <<: *default
+  # database: db/test.sqlite3 変更
+  database: _test
+  host: localhost
+  username: postgres
+  password: 0ntd0mFVW2BB9GprjLWlPla8lo3dLjAL
+production:
+  <<: *default
+  # database: db/production.sqlite3 変更
+  database: sampleapp_production_3986
+  password: 0ntd0mFVW2BB9GprjLWlPla8lo3dLjAL
+  url: postgres://sampleapp_production_3986_user:0ntd0mFVW2BB9GprjLWlPla8lo3dLjAL@dpg-cpjgoae3e1ms738db9qg-a.oregon-postgres.render.com/sampleapp_production_3986
